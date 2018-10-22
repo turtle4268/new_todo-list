@@ -1,0 +1,32 @@
+<mat-card class="edit">
+  <form [formGroup]="formGroup" (ngSubmit)="submit()">
+    <div class="card-header" fxLayoutAlign="center center">
+      <mat-checkbox color="primary" formControlName="completed"></mat-checkbox>
+      <mat-form-field>
+        <input matInput placeholder="Type Something Here…" formControlName="title">
+      </mat-form-field>
+      <button mat-icon-button type="button" class="favo" (click)="isFavo=!isFavo"><mat-icon>{{isFavo ? 'star' : 'star_border'}}</mat-icon></button>
+      <button mat-icon-button type="button" class="edit"><mat-icon>mode_edit</mat-icon></button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="card-content" fxLayout="row wrap" fxLayoutAlign="center center">
+      <div class="label" fxFlex="80"><mat-icon>date_range</mat-icon>Deadline</div>
+      <mat-form-field floatLabel="never">
+        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName="date" [readonly]="true" (click)="picker.open()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="label" fxFlex="80"><mat-icon>textsms</mat-icon>Comment</div>
+      <mat-form-field floatLabel="never">
+        <textarea matInput placeholder="Type your memo here…" formControlName="comment">
+        </textarea>
+      </mat-form-field>
+      
+    </div>
+    
+    <div class="card-action">
+      <button mat-button type="button" color="warn" fxFlex="1 1" (click)="close()"><mat-icon>clear</mat-icon>Cencel</button>
+      <button mat-button type="submit" class="add" fxFlex="1 1"><mat-icon>add</mat-icon>Add</button>
+    </div>
+  </form>
+</mat-card>

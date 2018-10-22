@@ -1,0 +1,14 @@
+<mat-toolbar class="nav" fxLayoutAlign="center center">
+  <nav mat-tab-nav-bar>
+      <a mat-tab-link fxFlex *ngFor="let link of links"
+         [routerLink]="'/'+ link.path" [active]="isActive === link.path">
+          {{link.text}}
+      </a>
+  </nav>
+</mat-toolbar>
+
+<mat-card class="mat-elevation-z0 add" fxLayoutAlign="start center" *ngIf="!isEdit" (click)="isEdit = !isEdit">
+  <mat-icon>add</mat-icon>Add Task
+</mat-card>
+<app-edit *ngIf="isEdit" (isclose)="isEdit = $event"></app-edit>
+<router-outlet></router-outlet>

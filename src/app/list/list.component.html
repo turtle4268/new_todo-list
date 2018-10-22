@@ -1,0 +1,24 @@
+<div fxLayout="column wrap">
+  <div *ngFor="let list of result" [fxFlexOrder]="list.favorite ? '-1' : '0'">
+    <mat-card class="list" [class.favo]="list.favorite" fxLayout="row wrap" fxLayoutAlign="space-between center"
+    *ngIf="!list.isedit">
+      <div fxLayout="row" fxFlex>
+        <mat-checkbox color="primary" [checked]="list.completed" (change)="changeComp(list)"></mat-checkbox>
+        <h3 [class.donetitle]="list.completed" fxFlex (click)="list.opendetail = !list.opendetail">{{list.title}}</h3>
+      </div>
+      <div>
+        <button mat-icon-button class="favo" (click)="changeFavo(list)"><mat-icon>{{list.favorite ? 'star' : 'star_border'}}</mat-icon></button>
+        <button mat-icon-button (click)="list.isedit = !list.isedit"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="delet(list.id)"><mat-icon>clear</mat-icon></button>
+      </div>
+      <p fxFlex="80" class="dtime">
+        <span *ngIf="list.date">{{list.date}}</span>
+        <span *ngIf="list.comment"><mat-icon>textsms</mat-icon></span>
+      </p>
+      <div fxFlex="90" *ngIf="list.opendetail">
+        <p>{{list.comment}}</p>
+      </div>
+    </mat-card>
+    <app-edit *ngIf="list.isedit" [id]="list.id" (isclose)="list.isedit = $event"></app-edit>
+  </div>
+</div>

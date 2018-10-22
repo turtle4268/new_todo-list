@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #e1e1e1;
+}
+.nav{
+    background-color: #4A90E2;
+    .mat-tab-nav-bar{
+        height: 100%;
+        .mat-tab-links{
+            height: 100%;
+            .mat-tab-link{
+                height: 100%;
+                color: #00408B;
+                opacity: 1;
+                font-size: 18px;
+                &.mat-tab-label-active{
+                    color: #FFF;
+                }
+            }
+            .mat-ink-bar{
+                height: 4px;
+            }
+        }
+    }
+}
+.mat-card{
+    width: 90%;
+    max-width: 620px;
+    margin: 1rem auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    &.add{
+        padding: 1rem;
+        border: 2px solid #c8c8c8;
+        font-size: 20px;
+        color: #c8c8c8;
+        border-radius: 5px;
+    }
+    &.edit{
+        padding: 0;
+        border-radius: 5px;
+        .card-content{
+            padding-top: 1.5rem;
+        }
+        .card-action .mat-button{
+            padding: 0.5rem;
+            border-radius: 0;
+            &.add{
+                color: #FFF;
+                background-color: #4A90E2;
+            }
+        }
+    }
+    &.list{
+        padding: 20px 24px 16px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        h3{
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .donetitle{
+            color: #9B9B9B;
+            text-decoration: line-through;
+        }
+        .dtime{
+            padding-left: 32px;
+            font-size: 14px;
+            color: #757575;
+            .mat-icon{
+                font-size: 14px;
+                margin-left: 16px;
+            }
+        }
+        .deletButton{
+            color: #D0021B;
+        }
+    }
+    &.favo{
+        background-color: #FFF2DC;
+        // order: -1;
+        .mat-icon-button.favo{
+            color: #F5A623;
+        }
+    }
+    .mat-icon-button{
+        &.edit{
+            color: #4A90E2;
+        }
+        &.favo{
+            color: #F5A623;            
+        }
+    }
+}
+.mat-form-field{
+    width: 70%;
+    margin: 0.5rem 1rem;
+}
